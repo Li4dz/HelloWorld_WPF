@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="sol_DemoHolaMundo.View.HolaMundoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:sol_DemoHolaMundo.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Hola Mundo"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="1" Content="Nombre:"></Label>
+            <TextBox Grid.Column="1" Grid.Row="1" Width="200" Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+            <Label Grid.Column="0" Grid.Row="2" Content="Nombre:"></Label>
+            <TextBox Grid.Column="1" Grid.Row="2" Width="200" Text="{Binding Nombre, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+            <Button Grid.Column="0" Grid.Row="3" Content="Mostrar Nombre" Command="{Binding CommandMostrarNombre, UpdateSourceTrigger=PropertyChanged}"></Button>
+            <Button Grid.Column="2" Grid.Row="3" Content="Cargar Persona" Command="{Binding CommandCargarPersona, UpdateSourceTrigger=PropertyChanged}" ></Button>
+            <Label Grid.Column="0" Grid.Row="4" Content="{Binding Contenido, UpdateSourceTrigger=PropertyChanged}"></Label>
+
+            <DataGrid x:Name="Grilla_Persona" Grid.Column="0" Grid.Row="5" AutoGenerateColumns="False" Grid.ColumnSpan="2"
+                      ItemsSource="{Binding ListaPersona, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id Persona" Binding="{Binding IdPersona}" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Nombre Persona" Binding="{Binding Nombre}" ></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+            
+    </Grid>
+</UserControl>
